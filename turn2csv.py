@@ -20,7 +20,8 @@ def main(directory):
     
             for sheet_name in book.sheet_names():     
                 sheet = book.sheet_by_name(sheet_name)
-                out_csv = "{}_{}.csv".format(basename, sheet_name)
+                out_sheet = sheet_name.replace(" ", "_")
+                out_csv = "{}_{}.csv".format(basename, out_sheet)
                 
                 with open(out_csv, "w") as f:
                     for nb_row in range(sheet.nrows):
